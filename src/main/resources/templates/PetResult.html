@@ -1,0 +1,27 @@
+<!-- PetResult.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Pet Submission Result</title>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">Pet Shop</div>
+    <div class="nav-links">
+      <a th:href="@{/shop/home}">Home</a>
+      <a th:href="@{/home}">My Pet</a>
+      <a th:href="@{/PetForm}">Add Pet</a>
+      <a href="#" class="logout">Logout</a>
+    </div>
+  </nav>
+</header>
+<main>
+  <h1>Pet Submission Result</h1>
+  <p>Pet Name: <span th:text="${pet_form.petName}"></span></p>
+  <p>Pet Age: <span th:text="${pet_form.petAge}"></span></p>
+  <p>Pet Place: <span th:text="${pet_form.petPlace}"></span></p>
+</main>
+</body>
+</html>

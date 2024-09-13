@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Pet Shop</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">Pet Shop</div>
+        <div class="nav-links">
+            <a th:href="@{/shop/home}">Home</a>
+            <a th:href="@{/home}">My Pet</a>
+            <a th:href="@{/PetForm}">Add Pet</a>
+            <a href="#" class="logout">Logout</a>
+        </div>
+    </nav>
+</header>
+<main>
+    <h1>Welcome to the Pet Shop</h1>
+    <table>
+        <tr>
+            <th>Pet ID</th>
+            <th>Pet Name</th>
+            <th>Pet Age</th>
+            <th>Pet Place</th>
+            <th>Buy</th>
+        </tr>
+        <tr th:each="pet : ${pets}">
+            <td th:text="${pet.id}">Pet ID</td>
+            <td th:text="${pet.name}">Pet Name</td>
+            <td th:text="${pet.age}">Pet Age</td>
+            <td th:text="${pet.place}">Pet Place</td>
+            <td>
+                <!--                <a th:if="${pet.available}" th:href="@{/buy/{id}(id=${pet.id})}">Buy</a>-->
+                <!--                <span th:if="${!pet.available}">Sold Out</span>-->
+            </td>
+        </tr>
+    </table>
+</main>
+</body>
+</html>

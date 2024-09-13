@@ -1,0 +1,257 @@
+Test cases for petpeer project
+
+Happy Test cases---😊
+
+Endpoint--  'http://localhost:8080/petShop/saveUser' 
+
+{
+  "id": 0,
+  "name": "nisha",
+  "password": "nisha@123",
+  "confirmPassword": "nisha@123",
+  "pets": [
+    {
+      "id": 0,
+      "name": "mukku",
+      "age": 5,
+      "place": "faridabad"
+    }
+  ],
+  "passwordMatching": true
+}
+--------------201 status 👌❤️
+
+-------------------------------------------------------------------------------------------------
+
+{
+  "id": 0,
+  "name": "nisha1",
+  "password": "nisha@123",
+  "confirmPassword": "nisha@123",
+  "pets":null,
+  "passwordMatching": true
+}
+--------------201 status 👌❤️
+
+----------------------------------------------------------------------------------------------------
+
+{
+  "id": 0,
+  "name": "rohit",
+  "password": "nisha@13",
+  "confirmPassword": "nisha@13",
+  "pets": [
+    {
+      "id": 0,
+      "name": "chandu",
+      "age": 5,
+      "place": "bihar"
+    },
+	{
+	 "id": 0,
+      "name": "sonu",
+      "age": 10,
+      "place": "UP"
+	}
+	
+  ],
+  "passwordMatching": false
+}
+
+******************************201 status 👌--but not able to save more then one pet at a time 😤💢
+
+----------------------------------------------------------------------------------------------
+
+{
+  "id": 0,
+  "name": "nisha1",
+  "password": "nisha@123",
+  "confirmPassword": "nisha@123",
+  "pets": [
+    {
+      "id": 0,
+      "name": "mukku",
+      "age": 5,
+      "place": "faridabad"
+    }
+  ],
+  "passwordMatching": true
+}
+--------------201 status 👌
+
+============================================================
+
+  'http://localhost:8080/petShop/home' ******************200 status 👌❤️(able to fetch all pet present in pet table)
+  
+  ===========================================================
+  
+   'http://localhost:8080/petShop/myPets/1' \******************200 status 👌❤️(able )
+   
+   =============================================================
+   
+   http://localhost:8080/petShop/savePet
+   {
+  "id": 0,
+  "name": "mukkku",
+  "age": 7,
+  "place": "UP"
+}
+
+getting saved***********************201 status '😊💕
+
+===========================================================
+
+http://localhost:8080/petShop/buyPet/2/2
+
+if user 1 don't have pet
+{
+  "id": 0,
+  "name": "nisha1",
+  "password": "nisha@123",
+  "confirmPassword": "nisha@123",
+  "pets":null,
+  "passwordMatching": true
+}
+
+
+if pet 2 don't have user
+
+  {
+  "id": 0,
+  "name": "mukkku",
+  "age": 7,
+  "place": "UP"
+}
+
+
+buy pet will map user to pet and pet to user******************200 status '😊💕
+
+-------------------------------------------------------------------------------------
+
+if user already have pet and pet tommy don't have user map
+
+{
+  "id": 0,
+  "name": "nisha",
+  "password": "nisha@123",
+  "confirmPassword": "nisha@123",
+  "pets": [
+    {
+      "id": 0,
+      "name": "mukku",
+      "age": 5,
+      "place": "faridabad"
+    }
+  ],
+  "passwordMatching": true
+}
+
+pet don't have user assigned
+
+ {
+  "id": 0,
+  "name": "mukkku",
+  "age": 7,
+  "place": "UP"
+}
+
+buy pet is adding new pet into user pet set*******************************201 status😊💕
+
+=======================================================
+
+
+
+All expected failed cases
+
+http://localhost:8080/petShop/myPets/6---------when user don't have 7 user register yet( status 400  💕💕👌)
+
+{
+  "timestamp": "2024-05-23T12:34:02.962929",
+  "status": 400,
+  "error": "400 BAD_REQUEST",
+  "errorMessage": [
+    "user not found in user service" 😁
+  ]
+}
+
+
+----------------------------------------------------------------------------------------------
+
+one user don't have pets yet
+
+{
+  "id": 0,
+  "name": "rohhit",
+  "password": "nisha@123",
+  "confirmPassword": "nisha@123",
+  "pets":null,
+  "passwordMatching": true
+}
+
+
+http://localhost:8080/petShop/myPets/3---------when user don't have pet yet( status 400 💕💕👌)
+
+{
+  "timestamp": "2024-05-23T12:38:31.4411781",
+  "status": 400,
+  "error": "400 BAD_REQUEST",
+  "errorMessage": [
+    "User don't have pet associated with him/her" 😍
+  ]
+}
+
+=========================================================
+
+http://localhost:8080/petShop/home
+
+when database have no user availble *********************(status 400)  💕💕👌
+
+{
+  "timestamp": "2024-05-23T12:43:57.721004",
+  "status": 400,
+  "error": "400 BAD_REQUEST",
+  "errorMessage": [ 
+    "There is no pets available" 👌
+  ]
+}
+
+========================================================
+
+http://localhost:8080/petShop/buyPet/6/2 -----when user is not available (status 400 )  💕💕👌
+
+{
+  "timestamp": "2024-05-23T12:48:44.5518816",
+  "status": 400,
+  "error": "400 BAD_REQUEST",
+  "errorMessage": [
+    "No user found from id : 6" 👌
+  ]
+}
+
+----------------------------------------------------------------------------------------
+
+http://localhost:8080/petShop/buyPet/2/6----------when pet is not available(status 500)🤔💭
+
+{
+  "timestamp": "2024-05-23T07:27:22.219+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "message": "No pet found from id : 6", 👌
+  "path": "/petShop/buyPet/2/6"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  

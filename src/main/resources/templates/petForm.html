@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add a Pet</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">Pet Shop</div>
+    <div class="nav-links">
+      <a th:href="@{/shop/home}">Home</a>
+      <a th:href="@{/home}">My Pet</a>
+      <a th:href="@{/PetForm}">Add Pet</a>
+      <a href="#" class="logout">Logout</a>
+    </div>
+  </nav>
+</header>
+<main>
+  <h1>Add a Pet</h1>
+  <div class="form-container">
+    <h2>Pet Form</h2>
+    <form action="/savePet" method="post">
+      <label for="petName">Pet Name:</label>
+      <input type="text"  id="petName" name="petName" required>
+
+      <label for="petAge">Pet Age:</label>
+      <input type="number" id="petAge"  name="petAge" required>
+
+      <label for="petPlace">Pet Place:</label>
+      <input type="text" id="petPlace" name="petPlace" required>
+
+      <button type="submit" value="Submit">Add Pet</button>
+      <input type="reset" value="Reset"/>
+    </form>
+  </div>
+</main>
+</body>
+</html>
